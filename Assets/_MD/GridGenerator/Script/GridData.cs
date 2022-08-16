@@ -7,7 +7,7 @@ public class GridData : ScriptableObject
 {
     public TileDictionary TileDictionary;
     public float SpawnDistance;
-    public Vector2Int GridSize;
+    [HideInInspector] public Vector2Int GridSize;
     [Header("Tile Data")]
     public List<Tile> CellSettings;
 
