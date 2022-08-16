@@ -1,16 +1,19 @@
+/*
+ * Written by Mehmet Doğan <mmt.dgn.6634@gmail.com>, July 2022
+*/
 using UnityEngine;
 using UnityEditor;
 
 [CustomEditor(typeof(GridGenerator))]
 public class GridGeneratorInspector : Editor
 {
-    int _x, _y;
-    GridGenerator _target;
+    private int m_X, m_Y;
+    private GridGenerator m_Target;
 
     private void OnEnable()
     {
-        _target = (GridGenerator)target;
-        _target.UpdateGridSizeField();
+        m_Target = (GridGenerator)target;
+        m_Target.UpdateGridSizeField();
     }
 
     public override void OnInspectorGUI()
@@ -37,7 +40,7 @@ public class GridGeneratorInspector : Editor
 
 
         SerializedProperty _GridRoot = serializedObject.FindProperty("m_Grid");
-        if (_target.Grid != null)
+        if (m_Target.Grid != null)
         {
             BeginInnerBorder();
             EditorGUILayout.PropertyField(_GridRoot, true);
@@ -52,7 +55,7 @@ public class GridGeneratorInspector : Editor
 
     private void OnAnyValueChanged()
     {
-        _target.UpdateGridSizeField();
+        m_Target.UpdateGridSizeField();
     }
 
     private void DrawLabel()
@@ -62,9 +65,11 @@ public class GridGeneratorInspector : Editor
         {
             alignment = TextAnchor.MiddleCenter,
             fontSize = 20,
+            normal =
+            {
+                textColor = Color.cyan
+            }
         };
-
-        _style.normal.textColor = Color.cyan;
 
         GUI.backgroundColor = Color.gray;
 
@@ -85,23 +90,23 @@ public class GridGeneratorInspector : Editor
         BeginInnerBorder();
 
 
-        if (!_target.IsGridDataNull)
+        if (!m_Target.IsGridDataNull)
         {
-            _target.GetGridData();
-            _x = _target.GridData.GridSize.x;
-            _y = _target.GridData.GridSize.y;
+            m_Target.GetGridData();
+            m_X = m_Target.GridData.GridSize.x;
+            m_Y = m_Target.GridData.GridSize.y;
         }
 
         GUILayout.Label("Grid size", GUILayout.Width(100f));
 
         GUILayout.Label("X", GUILayout.Width(11f));
-        _target.X = EditorGUILayout.IntField(serializedObject.FindProperty("m_X").intValue, GUILayout.MinWidth(30f));
+        m_Target.X = EditorGUILayout.IntField(serializedObject.FindProperty("m_X").intValue, GUILayout.MinWidth(30f));
         GUILayout.Label("Y", GUILayout.Width(11f));
-        _target.Y = EditorGUILayout.IntField(serializedObject.FindProperty("m_Y").intValue, GUILayout.MinWidth(30f));
+        m_Target.Y = EditorGUILayout.IntField(serializedObject.FindProperty("m_Y").intValue, GUILayout.MinWidth(30f));
 
         if (GUILayout.Button("Generate"))
         {
-            if (_x > 0 && _y > 0)
+            if (m_X > 0 && m_Y > 0)
             {
                 if (EditorUtility.DisplayDialog("Generate Grid Layout", "Are you sure you want to Regenerate Grid?\n\n Existing data will be gone!", "Yes", "No"))
                 {
@@ -121,10 +126,10 @@ public class GridGeneratorInspector : Editor
     }
     private void GenerateGridLayout()
     {
-        _x = _target.X;
-        _y = _target.Y;
-        _target.SetGridSize(_x, _y);
-        _target.UpdateGrid(_x * _y);
+        m_X = m_Target.X;
+        m_Y = m_Target.Y;
+        m_Target.SetGridSize(m_X, m_Y);
+        m_Target.UpdateGrid(m_X * m_Y);
     }
     private void DrawGrid()
     {
@@ -136,17 +141,17 @@ public class GridGeneratorInspector : Editor
         GUILayout.BeginVertical(EditorStyles.objectFieldThumb);
         GUI.backgroundColor = Color.gray;
         Space(5);
-        for (var i = _y - 1; i >= 0; i--)
+        for (var i = m_Y - 1; i >= 0; i--)
         {
             GUILayout.BeginHorizontal();
             Space(5);
-            for (var j = 0; j < _x; j++)
+            for (var j = 0; j < m_X; j++)
             {
 
-                GUI.backgroundColor = _target.GetColor(j, i);
-                if (GUILayout.Button($"{j},{i}\n{_target.GetTypeName(j, i)} ", EditorStyles.objectField, GUILayout.MinHeight(40f)))
+                GUI.backgroundColor = m_Target.GetColor(j, i);
+                if (GUILayout.Button($"{j},{i}\n{m_Target.GetTypeName(j, i)} ", EditorStyles.objectField, GUILayout.MinHeight(40f)))
                 {
-                    _target.ChangeState(j, i);
+                    m_Target.ChangeState(j, i);
                 }
                 // if (j != _x - 1)
                 Space(5);
@@ -168,9 +173,9 @@ public class GridGeneratorInspector : Editor
     private void DrawCreateButtonField()
     {
 
-        if (_x > 0 && _y > 0)
+        if (m_X > 0 && m_Y > 0)
         {
-            if (_target.Grid == null)
+            if (m_Target.Grid == null)
             {
                 GUI.backgroundColor = Color.gray;
                 GUI.contentColor = Color.white;
@@ -199,8 +204,8 @@ public class GridGeneratorInspector : Editor
 
     private void CreateGrid(bool asPrefab = false)
     {
-        _target.UpdateTileColors();
-        _target.CreateGrid(asPrefab);
+        m_Target.UpdateTileColors();
+        m_Target.CreateGrid(asPrefab);
     }
 
     #region OutBorder

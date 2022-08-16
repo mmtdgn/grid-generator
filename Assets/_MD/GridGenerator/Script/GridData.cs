@@ -1,3 +1,6 @@
+/*
+ * Written by Mehmet Doğan <mmt.dgn.6634@gmail.com>, July 2022
+*/
 using UnityEngine;
 using System.Collections.Generic;
 
@@ -48,6 +51,7 @@ public class GridData : ScriptableObject
     {
         TileDictionary.SetTileColor(GetTileKey(x, y));
     }
+
     private TileType GetTileKey(int x, int y)
     {
         return GetCellData(x, y).TileType;

@@ -1,3 +1,6 @@
+/*
+ * Written by Mehmet Doğan <mmt.dgn.6634@gmail.com>, July 2022
+*/
 using System;
 using System.Collections.Generic;
 using UnityEngine;
@@ -139,11 +142,13 @@ public class GridGenerator : MonoBehaviour
         }
         return Enum.GetName(typeof(TileType), m_GridCells[_x, _y].TileType);
     }
+
     public void SetGridSize(int x, int y)
     {
         if (IsGridDataNull) return;
         m_GridData.GridSize.Set(x, y);
     }
+
     public void UpdateGridSizeField()
     {
         if (IsGridDataNull) return;

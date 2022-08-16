@@ -14,38 +14,125 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TileDictionary: {fileID: 4741276116291948405, guid: 8aba7881894e0754298cb86271e579ec, type: 3}
   SpawnDistance: 1.2
-  GridSize: {x: 3, y: 3}
+  GridSize: {x: 6, y: 6}
   CellSettings:
   - name: X
     Y:
     - name: ' '
       Coordinate: {x: 0, y: 0}
-      TileType: 4
+      TileType: 2
     - name: ' '
       Coordinate: {x: 0, y: 1}
-      TileType: 2
+      TileType: 1
     - name: ' '
       Coordinate: {x: 0, y: 2}
+      TileType: 2
+    - name: ' '
+      Coordinate: {x: 0, y: 3}
+      TileType: 3
+    - name: ' '
+      Coordinate: {x: 0, y: 4}
       TileType: 1
+    - name: ' '
+      Coordinate: {x: 0, y: 5}
+      TileType: 2
   - name: X
     Y:
-    - name: 1, 0
+    - name: ' '
       Coordinate: {x: 1, y: 0}
-      TileType: 3
-    - name: 1, 1
+      TileType: 0
+    - name: ' '
       Coordinate: {x: 1, y: 1}
-      TileType: 4
-    - name: 1, 2
+      TileType: 3
+    - name: ' '
       Coordinate: {x: 1, y: 2}
       TileType: 2
+    - name: ' '
+      Coordinate: {x: 1, y: 3}
+      TileType: 3
+    - name: ' '
+      Coordinate: {x: 1, y: 4}
+      TileType: 4
+    - name: ' '
+      Coordinate: {x: 1, y: 5}
+      TileType: 3
   - name: X
     Y:
-    - name: 2, 0
+    - name: ' '
       Coordinate: {x: 2, y: 0}
       TileType: 1
-    - name: 2, 1
+    - name: ' '
       Coordinate: {x: 2, y: 1}
       TileType: 2
-    - name: 2, 2
+    - name: ' '
       Coordinate: {x: 2, y: 2}
+      TileType: 1
+    - name: ' '
+      Coordinate: {x: 2, y: 3}
+      TileType: 3
+    - name: ' '
+      Coordinate: {x: 2, y: 4}
+      TileType: 3
+    - name: ' '
+      Coordinate: {x: 2, y: 5}
+      TileType: 1
+  - name: X
+    Y:
+    - name: ' '
+      Coordinate: {x: 3, y: 0}
+      TileType: 2
+    - name: ' '
+      Coordinate: {x: 3, y: 1}
       TileType: 4
+    - name: ' '
+      Coordinate: {x: 3, y: 2}
+      TileType: 2
+    - name: ' '
+      Coordinate: {x: 3, y: 3}
+      TileType: 4
+    - name: ' '
+      Coordinate: {x: 3, y: 4}
+      TileType: 2
+    - name: ' '
+      Coordinate: {x: 3, y: 5}
+      TileType: 1
+  - name: X
+    Y:
+    - name: 4, 0
+      Coordinate: {x: 4, y: 0}
+      TileType: 2
+    - name: 4, 1
+      Coordinate: {x: 4, y: 1}
+      TileType: 1
+    - name: 4, 2
+      Coordinate: {x: 4, y: 2}
+      TileType: 4
+    - name: 4, 3
+      Coordinate: {x: 4, y: 3}
+      TileType: 2
+    - name: 4, 4
+      Coordinate: {x: 4, y: 4}
+      TileType: 3
+    - name: 4, 5
+      Coordinate: {x: 4, y: 5}
+      TileType: 0
+  - name: X
+    Y:
+    - name: 5, 0
+      Coordinate: {x: 5, y: 0}
+      TileType: 1
+    - name: 5, 1
+      Coordinate: {x: 5, y: 1}
+      TileType: 2
+    - name: 5, 2
+      Coordinate: {x: 5, y: 2}
+      TileType: 2
+    - name: 5, 3
+      Coordinate: {x: 5, y: 3}
+      TileType: 1
+    - name: 5, 4
+      Coordinate: {x: 5, y: 4}
+      TileType: 2
+    - name: 5, 5
+      Coordinate: {x: 5, y: 5}
+      TileType: 2
