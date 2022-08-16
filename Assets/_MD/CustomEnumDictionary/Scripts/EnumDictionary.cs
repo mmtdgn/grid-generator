@@ -5,6 +5,7 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using MD.EnumDictionary.Extensions;
 
 namespace MD.EnumDictionary
 {
@@ -65,6 +66,35 @@ namespace MD.EnumDictionary
             _T1[index].key = (T)(object)index;
             _T1[index].IsEnumFieldEditable = true;
             _T1[index].name = " ";//Clear Element index name/ (R&D: `String.Empty` Not working?)
+        }
+
+        /// <summary>
+        /// Returns dictionary values by given enum key<br></br><br></br>
+        /// <b>Returns</b> First and second value
+        /// </summary>
+        public (T1 FirstValue, T2 SecondValue) GetValues(T key)
+        {
+            return (_T1.GetFirstValue(key), _T1.GetSecondValue(key));
+        }
+
+        /// <summary>
+        /// Setter for dictionary values.<br></br><br></br>
+        /// </summary>
+        /// <param name="key">Key for which enum data will be set</param>
+        /// <param name="value1">New first value to write to dictionary</param>
+        public void SetValues(T key, T1 value1)
+        {
+            _T1.SetFirstValue(key, value1);
+        }
+
+        /// <summary>
+        /// Setter for dictionary values.<br></br><br></br>
+        /// </summary>
+        /// <param name="key">Key for which enum data will be set</param>
+        /// <param name="value2">New second value to write to dictionary</param>
+        public void SetValues(T key, T2 value2)
+        {
+            _T1.SetSecondValue(key, value2);
         }
 
         /// <summary>

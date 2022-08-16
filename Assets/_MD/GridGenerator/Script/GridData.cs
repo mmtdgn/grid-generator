@@ -37,11 +37,11 @@ public class GridData : ScriptableObject
 
     public Color GetTileColor(int x, int y)
     {
-        return TileDictionary.GetValues(GetTileKey(x, y)).color;
+        return TileDictionary.GetDictionaryValues(GetTileKey(x, y)).Color;
     }
     public GameObject GetTilePrefab(int x, int y)
     {
-        return TileDictionary.GetValues(GetTileKey(x, y)).Prefab;
+        return TileDictionary.GetDictionaryValues(GetTileKey(x, y)).Prefab;
     }
 
     public void SetTileColors(int x, int y)
