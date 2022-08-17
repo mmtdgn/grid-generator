@@ -5,12 +5,16 @@ An editor tool that provide you to easily design levels in grid-based games
 |:----:|:----:|
 |<img src="/.github/screenshots/title.png">|![](/.github/screenshots/00.gif)|
 
+-------------------------------------------------------------------------------------------------------------------------------------  
+
 ## Usage
 <!--1. Add `GridGenerator` script to your scene.
 2. Create a `Grid Data` from `MD/GridData` and assign it to `GridGenerator`
 3. Set grid size and create grid layout by clicking `Generate` button
 4. Change tile type by clicking them on it. And click `Create Grid` or `Create Grid as Prefab` button to create Grid.
-5. It's saves data to scriptable object automatically.*/-->
+5. It's saves data to scriptable object automatically.*/-->  
+
+-------------------------------------------------------------------------------------------------------------------------------------
 
 | 1. Add `GridGenerator` script to your scene.                                    |  2. Create a `Grid Data` from `Create/MD/GridData` and assign it to `GridGenerator` |
 |:---:|:---:|
@@ -18,11 +22,13 @@ An editor tool that provide you to easily design levels in grid-based games
 | 3. Set grid size and create grid layout by clicking `Generate` button           | 4. Change tile type by clicking them on it. And click `Create Grid` or `Create Grid as Prefab` button to create Grid. |
 | <img src="/.github/screenshots/1.png"> |<img src="/.github/screenshots/1.1.png"> |
 
+-------------------------------------------------------------------------------------------------------------------------------------
+
 |Tutorial|
 |:---:|
 |![](/.github/screenshots/11.gif)|
 
-
+-------------------------------------------------------------------------------------------------------------------------------------
 
 ## Tile and Button Settings
  * "Custom Enum Dictionary" is used in this project. Basically, it stores data and returns values with given enum key. it's serializable
