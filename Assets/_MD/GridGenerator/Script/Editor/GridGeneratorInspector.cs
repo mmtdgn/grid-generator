@@ -3,6 +3,7 @@
 */
 using UnityEngine;
 using UnityEditor;
+using System;
 
 [CustomEditor(typeof(GridGenerator))]
 public class GridGeneratorInspector : Editor
@@ -48,16 +49,16 @@ public class GridGeneratorInspector : Editor
         }
         if (EditorGUI.EndChangeCheck())
         {
-            OnAnyValueChanged();
+            EditorApplication.delayCall += (() => m_Target.UpdateGridSizeField());
         }
         EndOutBorder();
     }
 
-    private void OnAnyValueChanged()
+    private void UpdateFields()
     {
         m_Target.UpdateGridSizeField();
+        EditorApplication.delayCall -= UpdateFields;
     }
-
     private void DrawLabel()
     {
         GUI.contentColor = Color.cyan;
@@ -122,6 +123,15 @@ public class GridGeneratorInspector : Editor
         GUI.backgroundColor = Color.gray;
 
         EndInnerBorder();
+
+        BeginInnerBorder();
+        if (GUILayout.Button("Random Generate"))
+        {
+            GenerateGridLayout();
+            m_Target.RandomGenerate();
+        }
+        EndInnerBorder();
+
         EndOutBorder();
     }
     private void GenerateGridLayout()

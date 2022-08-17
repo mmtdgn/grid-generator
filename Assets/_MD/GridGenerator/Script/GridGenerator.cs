@@ -4,6 +4,7 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Collections;
 #if UNITY_EDITOR
 using UnityEditor;
 #endif
@@ -151,7 +152,8 @@ public class GridGenerator : MonoBehaviour
 
     public void UpdateGridSizeField()
     {
-        if (IsGridDataNull) return;
+        if (m_GridData == null) return;
+
         m_X = m_GridData.GridSize.x;
         m_Y = m_GridData.GridSize.y;
     }
@@ -163,6 +165,31 @@ public class GridGenerator : MonoBehaviour
             for (var j = 0; j <= m_GridCells.GetUpperBound(1); j++)
             {
                 m_GridData.SetTileColors(i, j);
+            }
+        }
+    }
+
+    public void RandomGenerate()
+    {
+        if (IsGridDataNull) return;
+
+        int _x = m_GridData.GridSize.x;
+        int _y = m_GridData.GridSize.y;
+        int _randomValue = 0;
+
+        m_GridCells = new TileSettings[_x, _y];
+
+        for (var i = 0; i < _x; i++)
+        {
+            for (var j = 0; j < _y; j++)
+            {
+                _randomValue = UnityEngine.Random.Range(1, Enum.GetNames(typeof(TileType)).Length);
+                // => T0 (Empty Tile) not include. To include it set Range() minInclisuve parameter to 0;
+
+                if (i >= m_GridData.GridSize.x || j >= m_GridData.GridSize.y)
+                    break;
+                m_GridCells[i, j] = m_GridData.GetCellData(i, j);
+                m_GridCells[i, j].TileType = (TileType)(_randomValue);
             }
         }
     }
