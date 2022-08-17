@@ -33,8 +33,11 @@ An editor tool that provide you to easily design levels in grid-based games
 |:---:|
 |<img src="/.github/screenshots/data.png"> |
 
+---------------------------------------------------------------------------------------------
 ### If you want to quick look to `Custom Enum Dictionary`
+---------------------------------------------------------------------------------------------
 [<img src="/.github/screenshots/temp.png">](https://github.com/mmtdgn/enum-dictionary)  
+---------------------------------------------------------------------------------------------
 
 ## Grid Data
 
