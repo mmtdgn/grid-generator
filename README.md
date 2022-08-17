@@ -14,8 +14,6 @@ An editor tool that provide you to easily design levels in grid-based games
 4. Change tile type by clicking them on it. And click `Create Grid` or `Create Grid as Prefab` button to create Grid.
 5. It's saves data to scriptable object automatically.*/-->  
 
--------------------------------------------------------------------------------------------------------------------------------------
-
 | 1. Add `GridGenerator` script to your scene.                                    |  2. Create a `Grid Data` from `Create/MD/GridData` and assign it to `GridGenerator` |
 |:---:|:---:|
 | <img src="/.github/screenshots/0.png">  |  <img src="/.github/screenshots/0.1.png"> |
