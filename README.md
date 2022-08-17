@@ -51,4 +51,6 @@ When you create a grid, this file stores data.
 
 |Tile Dictionary|TileDictionary reference|
 |:--------:|----------|
-|Spawn Distance |The distance to leave between each tile when creating the grid|
+|Spawn Distance |The distance to leave between each tile when creating the grid|  
+
+-------------------------------------------------------------------------------------------------------------------------------------
